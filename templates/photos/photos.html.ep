@@ -1,0 +1,29 @@
+% layout 'default', description => _l('Photos') . ' Yahwe', js => '/js/yahwe-photos.min.js', css => '/css/lightbox.min.css';
+% title _l ('Photos');
+
+    
+<h1 align="center"><%= _l 'Photos' %></h1>
+
+<div class="grid">
+% for my $i (@$files) {
+    <div class="grid-item" style="width: 270px; padding-top: 20px;">
+        <a href="/i/photos/<%= $i %>.jpg" data-lightbox="roadtrip">
+            <img src="/i/photos/_<%= $i %>.jpg" style="width: 270px;"/>
+        </a>
+    </div>
+% }
+</div>
+  
+<script>
+$(function() {
+    var $grid = $('.grid').masonry({
+        itemSelector: '.grid-item',
+        columnWidth: 290
+    });
+    
+    $grid.imagesLoaded().progress( function() {
+        $grid.masonry('layout');
+    });
+});
+</script>
+  

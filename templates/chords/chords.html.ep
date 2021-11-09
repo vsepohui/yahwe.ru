@@ -1,0 +1,12 @@
+% layout 'default', description => _l 'Yahwe songs guitar chords';
+% title _l('Chords');
+
+<h1 align="center"><%= _l('Chords') %></h1>
+
+<ul>
+% for my $f (@$files) {
+    % my $s = $f;
+    % $s =~ s/\.txt$//;
+    <li class="h5"><a href="/chords/<%= $s %>"><%= $s %></a></li>
+% }
+</ul>

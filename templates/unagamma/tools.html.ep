@@ -1,0 +1,19 @@
+% my $title = stash 'title';
+% my $url = new Mojo::URL;
+% $url->scheme('https');
+% $url->host('www.youtube.com');
+% $url->path('/results');
+% $url->query(search_query => $title);
+% my $url_vk = new Mojo::URL;
+% $url_vk->scheme('https');
+% $url_vk->host('vk.com');
+% $url_vk->path('/search');
+% $url_vk->query('c[per_page]' => 40, 'c[q]' => $title, 'c[section]' => 'audio');
+
+% if (stash ('big')) {
+    <a href="<%= "$url" %>" target="_blank" title="Youtube search"><i class="fab fa-youtube"></i></a>
+    <a href="<%= "$url_vk" %>" target="_blank" title="Vk search"><i class="fab fa-vk"></i></a>
+    <a href="#" class="copy" data-clipboard-text="<%= $title %>" onclick="return false" title="Copy"><i class="fas fa-clipboard"></i></a>
+% } else {
+    <a href="<%= "$url" %>" target="_blank" title="Youtube search"><img src="/i/icons/youtube.svg" height="20px"/></a>&nbsp;&nbsp;<a href="<%= "$url_vk" %>" target="_blank" title="Vk search"><img src="/i/icons/vk.png" height="20px"/></a>&nbsp;&nbsp;<a href="#" class="copy" data-clipboard-text="<%= $title %>" onclick="return false" title="Copy"><img src="/i/icons/clipboard.svg" height="16px"/></a>
+% }

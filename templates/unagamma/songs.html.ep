@@ -1,0 +1,83 @@
+% use Digest::MD5 qw(md5_hex);
+% my $track = $feed->[0]->[0];
+% my ($artist, $song) = $track =~ /^([^-]+) - (.+)$/;
+
+% my $short_bio = stash 'short_bio';
+% my $tags = stash 'tags';
+
+<h2 align="center"><%= $artist %></h2>
+
+<div class="h5">
+<p id="short_bio">
+% if ($short_bio) {
+    %== $short_bio;
+    ... <a href="#info" id="show_by_bio" onclick="return false;"><%= _l 'Show more' %></a>
+% }
+</p>
+<p id="long_bio" style="display: none;">
+%== stash 'bio';
+</p>
+% if ($tags && @$tags) {
+    <p>
+        Tags:
+        %= join ', ', @$tags;
+    </p>
+% }
+</div>
+
+<h2 align="center"><%= _l 'Songs' %></h2>
+
+
+<table class="table">
+<thead>
+    <tr>
+        <th class="h6"><%= _l 'Title' %></th>
+        <th class="h6"><%= _l 'Time' %></th>
+        <th class="h6"><%= _l 'Tools' %></th>
+    </tr>
+</thed>
+% for my $f (@$feed) {
+    <tr>
+    % my $title = $f->[0];
+    % my $ts = $f->[1];
+        <td class="h5"><%= $title %></td>
+        <td class="h5" width="160px"><i><%= $ts %></i></td>
+        <td class="h5" width="120px">
+
+% my $url = new Mojo::URL;
+% $url->scheme('https');
+% $url->host('www.youtube.com');
+% $url->path('/results');
+% $url->query(search_query => $title);
+% my $url_vk = new Mojo::URL;
+% $url_vk->scheme('https');
+% $url_vk->host('vk.com');
+% $url_vk->path('/search');
+% $url_vk->query('c[per_page]' => 40, 'c[q]' => $title, 'c[section]' => 'audio');
+
+% if (stash ('big')) {
+    <a href="<%= "$url" %>" target="_blank" title="Youtube search"><i class="fab fa-youtube"></i></a>
+    <a href="<%= "$url_vk" %>" target="_blank" title="Vk search"><i class="fab fa-vk"></i></a>
+    <a href="#" class="copy" data-clipboard-text="<%= $title %>" onclick="return false" title="Copy"><i class="fas fa-clipboard"></i></a>
+% } else {
+    <a href="<%= "$url" %>" target="_blank" title="Youtube search"><img src="/i/icons/youtube.svg" height="20px"/></a>&nbsp;&nbsp;<a href="<%= "$url_vk" %>" target="_blank" title="Vk search"><img src="/i/icons/vk.png" height="20px"/></a>&nbsp;&nbsp;<a href="#" class="copy" data-clipboard-text="<%= $title %>" onclick="return false" title="Copy"><img src="/i/icons/clipboard.svg" height="16px"/></a>
+% }
+
+
+        </td>
+    </tr>
+% }
+</table>
+
+<script>
+var cover = '/i/covers/<%= md5_hex(utf8::is_utf8($artist) ? Encode::encode_utf8($artist) : $artist) %>.jpg';
+
+$(function() {
+    $('#show_by_bio').click(function () {
+        is_more = 1;
+        $('#short_bio').hide();
+        $('#long_bio').show();
+    });
+});
+</script>
+

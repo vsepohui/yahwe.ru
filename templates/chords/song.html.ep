@@ -1,0 +1,8 @@
+% layout 'default';
+% title $song . ' :: ' . _l('Chords');
+
+% my @s = split /\n/, $chords;
+<h1><%= shift @s %></h1>
+<pre>
+<%= join "\n", @s %>
+</pre>

@@ -1,0 +1,53 @@
+  
+      <h2>Chat</h2>
+      <form>
+        <label>
+          <span></span>
+          <input class="form-control" type="search" name="message" value="" disabled>
+        </label>
+        <button class="btn btn-primary button">Say</button>
+      </form>
+      <div id="messages">Connecting...</div>
+
+    %= javascript begin
+      var formEl = document.getElementsByTagName("form")[0];
+      var inputEl = formEl.message;
+      var messagesEl = document.getElementById("messages");
+    % use Mojo::JSON qw/to_json/;
+      var messages = <%== to_json (stash ('chat') || []) %>;
+      var ws = new WebSocket("<%= url_for('chat-socket-ru')->to_abs %>");
+      var hms = function() {
+        var d = new Date();
+        return [d.getHours(), d.getMinutes(), d.getSeconds()].map(function(v) {
+          return v < 10 ? "0" + v : v;
+        }).join(":");
+      };
+      
+      function render_chat () {
+          messagesEl.innerHTML = messages.join('<br>');
+      }
+
+      formEl.addEventListener("submit", function(e) {
+        e.preventDefault();
+        if (inputEl.value.length) ws.send(inputEl.value);
+        inputEl.value = "";
+      });
+
+      ws.onopen = function(e) {
+        inputEl.disabled = false;
+        document.getElementsByTagName("button")[0].disabled = false;
+        messages.unshift(hms() + " &lt;server> Connected.");
+        render_chat();
+      };
+
+      ws.onmessage = function(e) {
+        // messagesEl.innerHTML = e.data.replace(/</g, "&lt;") + "<br>" + messagesEl.innerHTML;
+        messages.unshift(e.data.replace(/</g, "&lt;"));
+        if (messages.length > 20) {
+            messages.pop();
+        }
+        
+        render_chat();
+      };
+    % end
+

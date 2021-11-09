@@ -1,0 +1,144 @@
+#!/usr/bin/perl
+
+use 5.024;
+use warnings;
+use utf8;
+
+use Encode qw(decode encode);
+
+BEGIN {use FindBin qw($Bin); require "$Bin/_init.pl"};
+
+
+use AE;
+use AnyEvent::HTTP;
+use Yahwe::DB;
+
+
+sub fetch_url {
+    my $url = shift;
+    my $res;
+    
+    my $cv = AE::cv;
+    
+    http_request 
+        GET => $url, 
+        headers => {
+            "User-Agent" => "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:92.0) Gecko/20100101 Firefox/92.0",
+            'Accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+            'Accept-Language' => 'ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3',
+        },
+        sub {
+            $res = $_[0];
+            $cv->send;
+        };
+    
+    $cv->recv;
+    
+     return decode('UTF-8', $res, Encode::FB_CROAK);
+    
+    return $res;
+}
+
+sub proccess_page {
+    my $alias = shift;
+    my $offset = shift;
+    
+    my $url = "https://m.vk.com/$alias?offset=$offset&own=1";
+    my $body = fetch_url($url);
+    
+    my @posts = parse_body($body);
+    
+    return @posts;
+}
+
+sub parse_body {
+    my $data = shift;
+
+    
+    die "No data" if ($data =~ /<div class="service_msg service_msg_null">На стене пока нет ни одной записи.<\/div>/);
+    
+    my @d = split '<div class="wi_head">', $data;
+    shift @d;
+
+    my @res;
+    
+    for my $s (@d) {
+        my ($uniq, $date, $post);
+        
+        ($uniq, $date) = $s =~ /<div class="wi_info"><a class="wi_date" href="\/([^"]+?)" rel="noopener">([^\<]+)<\/a><\/div>/;
+
+        if (($post) = $s =~ /<div class="pi_text">\s+(.+?)<\/div>/) {
+            1;
+        } elsif (($post) = $s =~ /<div class="pi_text[^\>]+>(.+?)<\/div>/) {
+            1;
+        } else {
+            #warn $s;
+            #warn "-----------------------\n\n\n";
+        }
+        
+        if ($post) {
+            $post =~ s/Показать полностью...<\/a>/<\/a>/g;
+            $post =~ s/<\/?a.+?>//g;
+
+            push @res, {
+                uniq => $uniq,
+                date => $date,
+                post => $post,
+            };
+        }
+
+    }
+
+    return @res;
+}
+
+
+sub parse_blog {
+    my @l;
+    
+    for my $n (0..1000) {
+        eval {
+            my @r = proccess_page('ivan_trunaev', $n * 5);
+            say "Process page " . ($n + 1);
+            push @l, @r;
+        };
+    
+        if ($@ =~ /No data/) {
+            return @l;
+        } else {
+            warn $@ if $@;
+        }
+        
+        #last if $n > 10;
+    }
+    return @l;
+    
+}
+
+sub main {
+    my @posts = parse_blog();
+    
+    my $db = new Yahwe::DB;
+    
+    $db->do(q[DELETE FROM blog]);
+    
+    for my $p (@posts) {
+        $db->do(
+            q[INSERT INTO blog (uniq, date, content) VALUES (?, ?, ?)],
+            $p->{uniq}, $p->{date}, $p->{post},
+        );
+    }
+}
+
+main();
+
+
+
+
+
+
+
+
+
+
+1;

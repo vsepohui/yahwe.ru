@@ -1,0 +1,10 @@
+% layout 'default', description => _l('Yahwe site mirrors list');
+% title _l('Mirrors');
+
+<h1 align="center"><%= _l('Mirrors') %></h1>
+<h3>
+    % for (qw/kunteynir.ru lsd25.ru marijuna.net marijuna.org mujuice.ru shiwa.ru trunaev.ru unagamma.com unagamma.ru vsepohui.ru yahwe.net yahwe.ru вишну.рф ганджа.рф ганеш.рф джа.рф/) {
+        <a href="https://<%= $_ %>" target="_blank">https://<%= $_ %></a><br/>
+    % }
+</h3>
+

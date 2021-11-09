@@ -1,0 +1,13 @@
+% layout 'default', description => _l('The Book of Yahwe. Veselyy Budda');
+% title _l('Books');
+
+
+<h1 align="center"><%= _l('Books') %></h1>
+
+<h2>Весёлый Будда</h2>
+<img src="/i/veseliy-buddha.png"/><br/>
+Эту книгу я писал почти три года. В ней стихи и рассказы по шаманизму, НЛП, гипнозу, психологии, философии, логике, буддизму и Кундалини По мастреству. Содержит нецензурную брать, и предназначена для аудитории 18+.<br/>
+<br/>
+Купить: <a href="https://www.lulu.com/en/en/shop/ivan-trunaev/veseliy-buddha/paperback/product-189p6ken.html?page=1&pageSize=4" target="_blank">https://www.lulu.com/en/en/shop/ivan-trunaev/veseliy-buddha/paperback/product-189p6ken.html?page=1&pageSize=4</a><br/>
+<br/>
+Опубликована 14 ноября 2018 года.

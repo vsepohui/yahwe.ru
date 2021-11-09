@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<meta name="description" content="<%= stash 'description' %>">
+<meta name="viewport" content="user-scalable=no,width=device-width" />
+% my $title = title;
+% my $_url = url_for;
+% $_url =~ s/\/(en|ru)(\/|$)/\//;
+<title><%= $title eq 'Yahwe' ? $title : "$title :: Yahwe" %></title>
+
+<link rel="alternate" hreflang="x-default" href="https://yahwe.ru<%= $_url %>" />
+<link rel="alternate" hreflang="en" href="https://yahwe.ru/en<%= $_url %>" />
+<link rel="alternate" hreflang="ru" href="https://yahwe.ru/ru<%= $_url %>" />
+
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" href="/icon-180x180.png">
+
+<link href="/css/yahwe.min.css" rel="stylesheet">
+% if (my $css = stash 'css') {
+<link href="<%= $css %>" rel="stylesheet">
+% }
+
+<script src="/js/yahwe.min.js"></script>
+% if (my $js = stash 'js') {
+<script src="<%= $js %>"></script>
+% }
+
+</head>
+<body class="text-center">
+
+<div class="main" align="left">
+    <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+
+
+    % my $url = url_for;
+
+  <nav class="navbar navbar-expand-lg" style="width: 100%; align: right;">
+    <div class="container-xl">
+
+      <a href="<%= lurl ('/') %>" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
+        <img src="/i/3rd-i-mini.jpg" width="32px"/>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="fs-4 h4" style="color: black;">Yahwe</span>
+      </a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+      </button>
+      
+      <div class="collapse navbar-collapse" style="text-align: right;" id="navbarNavDropdown">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 h6">
+
+            <li class="nav-item"><a href="<%= lurl ('/unagamma') %>" class="nav-link<%= $url eq '/'.$lang.'/unagamma' ? ' active' : '' %> h5"><%= _l 'Unagamma' %></a></li>
+            %# <li class="nav-item"><a href="<%= lurl ('/blog') %>" class="nav-link<%= $url =~ /^\/$lang\/blog/ ? ' active' : '' %> h5"><%= _l 'Blog' %></a></li>
+            <li class="nav-item"><a href="<%= lurl ('/releases') %>" class="nav-link<%= $url eq '/'.$lang.'/releases' ? ' active' : '' %> h5"><%= _l 'Releases' %></a></li>
+            %# <li class="nav-item"><a href="<%= lurl ('/chords') %>" class="nav-link<%= $url =~ /^\/$lang\/chords/ ? ' active' : '' %> h5"><%= _l 'Chords' %></a></li>
+            <li class="nav-item"><a href="<%= lurl ('/books') %>" class="nav-link<%= $url eq '/'.$lang.'/books' ? ' active' : '' %> h5"><%= _l 'Books' %></a></li>
+            <li class="nav-item"><a href="<%= lurl ('/photos') %>" class="nav-link<%= $url eq '/'.$lang.'/photos' ? ' active' : '' %> h5"><%= _l 'Photos' %></a></li>
+            <li class="nav-item"><a href="<%= lurl ('/say-hi') %>" class="nav-link<%= $url =~ /^\/$lang\/say-hi/ ? ' active' : '' %> h5"><%= _l 'Say Hi' %></a></li>
+            <li class="nav-item"><a href="<%= lurl ('/links') %>" class="nav-link<%= $url eq '/'.$lang.'/links' ? ' active' : '' %> h5"><%= _l 'Links' %></a></li>
+            <li class="nav-item"><a href="<%= lurl ('/donate') %>" class="nav-link<%= $url =~ /^\/$lang\/donate/ ? ' active' : '' %> h5"><%= _l 'Donate' %></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    </header>
+    </div>
+    <%= content %>
+    
+
+     <footer class="pt-4 my-md-5 pt-md-5 border-top">
+        <div class="row">
+          <div class="col-12 col-md">
+            <a href="<%= lurl '/' %>"><img class="mb-2" src="/i/3rd-i-mini.jpg" title="Yahwe"></a>
+            <small class="d-block mb-3 text-muted">Yahwe &copy; 2021</small>
+          </div>
+          <div class="col-6 col-md">
+            <h5><%= _l 'More' %></h5>
+            <ul class="list-unstyled text-small">
+              %# <li><a class="text-muted" href="<%= lurl ('/') %>"><%= _l 'Home' %></a></li>
+              <li><a class="text-muted" href="<%= lurl ('/me') %>"><%= _l 'About me' %></a></li>
+              <li><a class="text-muted" href="<%= lurl ('/unagamma') %>"><%= _l 'Unagamma' %></a></li>
+              <li><a class="text-muted" href="<%= lurl ('/blog') %>"><%= _l 'Blog' %></a></li>
+              <li><a class="text-muted" href="<%= lurl ('/releases') %>"><%= _l 'Releases' %></a></li>
+              <li><a class="text-muted" href="<%= lurl ('/chords') %>"><%= _l 'Chords' %></a></li>
+              <li><a class="text-muted" href="<%= lurl ('/books') %>"><%= _l 'Books' %></a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5><%= _l 'Stuff' %></h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="<%= lurl ('/photos') %>"><%= _l 'Photos' %></a></li>
+              <li><a class="text-muted" href="<%= lurl ('/say-hi') %>"><%= _l 'Say Hi' %></a></li>
+              <li><a class="text-muted" href="<%= lurl ('/links') %>"><%= _l 'Links' %></a></li>
+              <li><a class="text-muted" href="<%= lurl ('/donate') %>"><%= _l 'Donate' %></a></li>
+              <li><a class="text-muted" href="<%= lurl ('/feedback') %>"><%= _l 'Feedback' %></a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5><%= _l 'Language' %></h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="/en<%= $_url %>"><img src="/i/en.svg"/ height="24px"> English</a></li>
+                <li><a class="text-muted" href="/ru<%= $_url %>"><img src="/i/ru.svg"/ height="24px"> Русский</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+</div>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RG61S56E5N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RG61S56E5N');
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(86050140, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/86050140" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+</body>
+</html>

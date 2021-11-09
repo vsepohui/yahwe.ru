@@ -1,0 +1,59 @@
+% layout 'default', description => _l('Yahwe perosnal blog. For russian only');
+% title _l ('Blog');
+
+<h1 align="center"><%= _l 'Blog' %></h1>
+
+% for my $p (@$posts) {
+<i><%= $p->{date} %></i><br/>
+<p class="h5">
+%== $p->{content};
+</p>
+<hr/>
+% }
+
+
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    % if ($page > 1) {
+        <li class="page-item">
+        <a class="page-link" href="/blog/<%= $page - 1 %>" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+        </a>
+        </li>
+    % }
+    % if ($max_page > 10) {
+        % my $n = $page < 10 ? 1 : $page - 5; 
+        % my $m = $n + 9;
+		% $m = $max_page if $m > $max_page;
+        
+
+        % if ($n > 1) {
+            <li class="page-item<%= $page == 1 ? ' active' : '' %>"><a class="page-link" href="/blog/1">1</a></li>
+            <li class="page-item disabled"><a>..</a></li>
+        % }
+        % for ($n..$m) {
+            <li class="page-item<%= $_ == $page ? ' active' : '' %>"><a class="page-link" href="/blog/<%= $_ %>"><%= $_ %></a></li>
+        % }
+        
+        % if ($m < $max_page) {
+            <li class="page-item disabled"><a>..</a></li>
+            <li class="page-ite<%= $page == $max_page ? ' active' : '' %>m"><a class="page-link" href="/blog/<%= $max_page %>"><%= $max_page %></a></li>
+        % }
+
+
+    % } else {
+        % for (1..$max_page) {
+            <li class="page-item"><a class="page-link" href="/blog/<%= $_ %>"><%= $_ %></a></li>
+        % }
+    % }
+    
+    % if ($page < $max_page) {
+        <li class="page-item">
+          <a class="page-link" href="<%= $page + 1 %>" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+    % }
+  </ul>
+</nav>

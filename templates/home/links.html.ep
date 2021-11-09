@@ -1,0 +1,31 @@
+% layout 'default', description => _l('Links on external Yahwe resources');
+% title _l('Links');
+
+<h1 align="center"><%= _l('Links') %></h1>
+<h3>
+    <a href="https://vk.com/yahwe_music" target="_blank">https://vk.com/yahwe_music</a><br/>
+    <a href="https://vk.com/ivan_trunaev" target="_blank">https://vk.com/ivan_trunaev</a><br/>
+    <a href="https://yahwe.bandcamp.com/" target="_blank">https://yahwe.bandcamp.com/</a><br/>
+    <a href="https://www.youtube.com/user/yahuhu" target="_blank">https://www.youtube.com/user/yahuhu</a><br/>
+    <a href="https://soundcloud.com/trunaev" target="_blank">https://soundcloud.com/trunaev</a><br/>
+    <a href="https://anchor.fm/trunaev" target="_blank">https://anchor.fm/trunaev</a><br/>
+    <a href="https://twitter.com/opiate_lepicure/" target="_blank">https://twitter.com/opiate_lepicure/</a><br/> 
+    <a href="https://www.instagram.com/ivan.trunaev/" target="_blank">https://www.instagram.com/ivan.trunaev/</a><br/> 
+    <a href="https://www.last.fm/user/yoni_yoni_yoni" target="_blank">https://www.last.fm/user/yoni_yoni_yoni</a><br/>
+    <a href="https://twitch.tv/yahwe_music" target="_blank">https://twitch.tv/yahwe_music</a><br/>
+    <a href="https://drooble.com/yahwe/music" target="_blank">https://drooble.com/yahwe/music</a><br/>
+</h3>
+
+<h2 align="center"><%= _l('Publications') %></h2>
+
+<h3>
+    <a href="https://sub-cult.ru/interview/12513-andegraund-muzykant-ivan-trunaev-yahwe" target="_blank">https://sub-cult.ru/interview/12513-andegraund-muzykant-ivan-trunaev-yahwe</a><br/>
+    <a href="https://sub-cult.ru/musicnews/recenz/12523-yahwe-ya-vsegda-oshchushchal-chto-v-osnove-muzyki-zalozheno-kakoe-to-volshebstvo" target="_blank">https://sub-cult.ru/musicnews/recenz/12523-yahwe-ya-vsegda-oshchushchal-chto-v-osnove-muzyki-zalozheno-kakoe-to-volshebstvo</a><br/>
+</h3>
+
+
+<h2 align="center"><%= _l('Torrent') %></h2>
+
+<h3>
+    <a href="https://rutracker.org/forum/viewtopic.php?t=6116380" target="_blank">https://rutracker.org/forum/viewtopic.php?t=6116380</a><br/>
+</h3>

@@ -1,0 +1,146 @@
+#!/usr/bin/perl
+
+use 5.024;
+use warnings;
+use utf8;
+
+use Encode qw(decode encode);
+
+BEGIN {use FindBin qw($Bin); require "$Bin/_init.pl"};
+
+use Mojo::Home;
+use Mojo::DOM;
+use URI::Escape qw(uri_escape uri_unescape uri_escape_utf8);
+use Encode qw(encode decode);
+use AE;
+use AnyEvent::HTTP;
+use utf8;
+
+
+sub fetch_url {
+    my $url = shift;
+    my $res;
+    
+    my $cv = AE::cv;
+    
+    http_request 
+        GET => $url, 
+        headers => {
+            "User-Agent" => "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:92.0) Gecko/20100101 Firefox/92.0",
+      #      'Accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+      #      'Accept-Language' => 'ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3',
+        },
+        sub {
+            $res = $_[0];
+            $cv->send;
+        };
+    
+    $cv->recv;
+    
+     return decode('UTF-8', $res, Encode::FB_CROAK);
+    
+    return $res;
+}
+
+
+sub _open_xml {
+    my $path = shift;
+    
+    my ($fi, $s);
+    open $fi, $path;
+    while (my $i = <$fi>) {
+        $s .= $i;
+    }
+    close $fi;
+    
+    $s = Encode::decode('UTF-8', $s);
+    
+    return $s;
+}
+
+sub _process_feed {
+    my $file = shift;
+    my $proc = shift;
+    
+    state $cache = {};
+    
+    unless ($cache->{$file}) {
+        $cache->{$file}->{m} = -M $file;
+        my $s = _open_xml($file);
+        return $cache->{$file}->{s} = [$proc->($s)];
+    } else {
+        if ($cache->{$file}->{m} != -M $file) {
+            my $s = _open_xml($file);
+            return $cache->{$file}->{s} = [$proc->($s)];
+        } else {
+            return $cache->{$file}->{s};
+        }
+    }
+}
+
+sub _decode_url {
+    my $url = shift;
+    
+    my $i = uri_unescape($url);
+    $i = decode('UTF-8', $i);
+    $i =~ s/\+/ /g;
+    
+    $i =~ s/\&amp\;/\&/g;
+    
+    return $i;
+}
+
+sub _process_xml_main {
+    my $mini = shift;
+    my $xml  = shift;
+    
+    my $feed = Mojo::DOM->new($xml);
+    $feed = $feed->find('.chartlist-row')->join("\n");
+    
+    $feed =~ s/[ \t]+/ /g;
+    $feed =~ s/\n /\n/g;
+    $feed =~ s/\n+/\n/g;
+    $feed = [split /chartlist-row/, join "\n", $feed];
+    
+    
+    my @feed;
+    
+    my $cnt = 0;
+    for my $f (@$feed) {
+        if ($f =~ / href\=\"\/music\/([^\/]+)\/[^\/]+\/([^\/"]+)\"/) {
+            my $i = _decode_url("$1 - $2");
+            my ($ts) = $f =~ /chartlist-timestamp.+?\<span[^\>]+\>\s*(.+?)\s*\<\/span\>/s;
+            if ($ts) {
+                $ts =~ s/\<[^\>]+\>//g;
+                push @feed, [$i, $ts];
+                last if $mini && $cnt >= 4;
+                $cnt ++;
+            }
+            
+        }
+    }
+    
+    return @feed;
+}
+
+
+my $dir =  './db/';
+
+my $f = _process_feed($dir . 'lastfm.xml', sub {_process_xml_main(1, shift)});
+$f = $f->[0]->[0];
+$f =~ s/^(.+?) -.+$/$1/;
+
+my $url = 'https://www.last.fm/music/' . uri_escape_utf8($f);
+
+my $data = fetch_url($url);
+
+
+my ($img) = $data =~ /meta property=\"og:image\"\s+content=\"([^\"]+)\"/;
+
+`wget $img -q -O ./public/i/cover.jpg.tmp`;
+`mv ./public/i/cover.jpg.tmp ./public/i/cover.jpg`;
+
+
+
+
+1;
