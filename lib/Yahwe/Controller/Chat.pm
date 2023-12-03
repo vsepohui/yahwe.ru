@@ -11,7 +11,7 @@ my $cl = 'chat:list';
 sub socket {
     my $self = shift;
     
-    my $ref = $self->tx->req->headers->referrer();
+    my $ref = $self->req->headers->referer();
     warn $ref;
     #return unless $ref =~ /^https\:\/\/yahwe.kosherny.site\//;
     
