@@ -8,27 +8,13 @@ use base 'Yahwe::Controller';
 my $cl = 'chat:list';
 
 
-sub crc16 {
-   my ($string, $poly) = @_;
-   my $crc = 0;
-   for my $c ( unpack 'C*', $string ) {
-      $crc ^= $c;
-      for ( 0 .. 7 ) {
-         my $carry = $crc & 1;
-         $crc >>= 1;
-         $crc ^= $poly if $carry;
-      }
-   }
-   return $crc;
-}
-
 sub socket {
     my $self = shift;
     my $redis = $self->redis;
     my $pubsub = $redis->pubsub;
 
     my $ip = $self->tx->remote_address;
-    $ip = sprintf "%04x", crc16($ip,'666');
+    $ip =~ s/^\d+\.\d+\./*.*./;
     
     
     my $cb = $pubsub->listen('chat:example' => sub { 

@@ -3,13 +3,13 @@
 
 <p align="center"><img src="/i/ya.jpg" title="Yahwe" style="max-width: 400px;"/><br/></p>
 <h1 align="center">Yahwe</h1>
-<h3>
+<h4>
     <%= _l 'Name' %>: <%= _l 'Ivan Trunaev' %><br/>
-    <%= _l 'Email' %>: trunaev@gmail.com<br/>
-    <%= _l 'Phone' %>: +7(926)390-22-75<br/>
-    <%= _l 'Skype' %>: delf_shnaider<br/>
+    <%= _l 'Email' %>: trunaev.ivan@icloud.com (<s>trunaev@gmail.com</s> - losed)<br/>
+    <%= _l 'Phone' %>: +7(922)410-42-23 (old <s>+79263902275</s> - losed)<br/>
+    <%= _l 'Skype' %>: No skype (<s>delf_shnaider</s> - losed)<br/>
     <%= _l 'Telegram' %>: @trunaev<br/>
-</h3>
+</h4>
 <b2/>
 <h5><%= _l 'A mysterious indie-folk performer from somewhere in the snowy Siberia.' %></h5>
 <h5><a href="<%= lurl('/links') %>"><%= _l 'Links to me on social networks' %>.</a><br/></h5>

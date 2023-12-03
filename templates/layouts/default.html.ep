@@ -75,7 +75,7 @@
         <div class="row">
           <div class="col-12 col-md">
             <a href="<%= lurl '/' %>"><img class="mb-2" src="/i/3rd-i-mini.jpg" title="Yahwe"></a>
-            <small class="d-block mb-3 text-muted">Yahwe &copy; 2021</small>
+            <small class="d-block mb-3 text-muted">Yahwe &copy; 2021-2023</small>
           </div>
           <div class="col-6 col-md">
             <h5><%= _l 'More' %></h5>
@@ -97,6 +97,7 @@
               <li><a class="text-muted" href="<%= lurl ('/links') %>"><%= _l 'Links' %></a></li>
               <li><a class="text-muted" href="<%= lurl ('/donate') %>"><%= _l 'Donate' %></a></li>
               <li><a class="text-muted" href="<%= lurl ('/feedback') %>"><%= _l 'Feedback' %></a></li>
+              <li><a class="text-muted" href="https://github.com/vsepohui/yahwe.ru/" taget="_blank"><%= _l 'Source Code' %></a></li>
             </ul>
           </div>
           <div class="col-6 col-md">

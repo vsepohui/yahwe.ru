@@ -2,6 +2,14 @@
 % title _l('Donate');
 
 <h1 align="center"><%= _l('Donate') %></h1>
+<p>For full life i've got only about:</p>
+<ul>
+<li>About $3 from bandcamp.com</li>
+<li>Few money for a beer from friends</li>
+<li>Few money for a beer by my music street-session in Siberia</li>
+</ul>
+<br/>
+<p>If you want to gift me, buy my music, streem my music, and donate from Russia on CC by Phone Number Transfer (SberBank)</p>
 
 <script>
 $(function() {
