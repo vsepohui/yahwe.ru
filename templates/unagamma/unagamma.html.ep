@@ -58,7 +58,7 @@
 <div id="songs">
     %= include 'unagamma/songs';
 </div>
-<div id="lastfm"><%= _l('Powered by') %> <a href="https://last.fm/user/yoni_yoni_yoni">Last.fm</a></div>
+<div id="lastfm"><%= _l('Powered by') %> <a href="https://last.fm/user/trunaev">Last.fm</a></div>
 
 <script>
 

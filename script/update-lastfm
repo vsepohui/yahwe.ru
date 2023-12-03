@@ -128,7 +128,7 @@ sub _process_xml_main {
 
 sub update {
 
-    my $data = fetch_url('https://www.last.fm/user/yoni_yoni_yoni');
+    my $data = fetch_url('https://www.last.fm/user/trunaev');
     $data = decode('UTF-8', $data, Encode::FB_CROAK);
 
     my $dir = $Bin . '/../';
