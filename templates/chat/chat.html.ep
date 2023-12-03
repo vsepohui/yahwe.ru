@@ -15,7 +15,7 @@
       var messagesEl = document.getElementById("messages");
     % use Mojo::JSON qw/to_json/;
       var messages = <%== to_json (stash ('chat') || []) %>;
-      var ws = new WebSocket("/chat/socket");
+      var ws = new WebSocket("https://yahwe.kosherny.site/chat/socket");
       var hms = function() {
         var d = new Date();
         return [d.getHours(), d.getMinutes(), d.getSeconds()].map(function(v) {
