@@ -15,7 +15,7 @@
       var messagesEl = document.getElementById("messages");
     % use Mojo::JSON qw/to_json/;
       var messages = <%== to_json (stash ('chat') || []) %>;
-      var ws = new WebSocket("<%= url_for('chat-socket-ru')->to_abs %>");
+      var ws = new WebSocket("/chat/socket");
       var hms = function() {
         var d = new Date();
         return [d.getHours(), d.getMinutes(), d.getSeconds()].map(function(v) {
