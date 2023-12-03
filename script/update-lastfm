@@ -22,26 +22,7 @@ use utf8;
 
 sub fetch_url {
     my $url = shift;
-    my $res;
-    
-    my $cv = AE::cv;
-    
-    http_request 
-        GET => $url, 
-        headers => {
-            "User-Agent" => "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:92.0) Gecko/20100101 Firefox/92.0",
-      #      'Accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-      #      'Accept-Language' => 'ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3',
-        },
-        sub {
-            $res = $_[0];
-            $cv->send;
-        };
-    
-    $cv->recv;
-    
-    
-    return $res;
+	return `curl -s $url`;
 }
 
 
