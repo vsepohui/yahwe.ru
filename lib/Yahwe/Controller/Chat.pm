@@ -12,7 +12,8 @@ sub socket {
     my $self = shift;
     
     my $ref = $self->tx->req->headers->referrer();
-    return unless $ref =~ /^https\:\/\/yahwe.kosherny.site\//;
+    warn $ref;
+    #return unless $ref =~ /^https\:\/\/yahwe.kosherny.site\//;
     
     my $redis = $self->redis;
     my $pubsub = $redis->pubsub;
