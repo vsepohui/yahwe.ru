@@ -12,7 +12,7 @@ sub socket {
     my $self = shift;
     
     my $ref = $self->tx->req->headers->referrer();
-    return if $ref =~ /^https\:\/\/yahwe.kosherny.site\//;
+    return unless $ref =~ /^https\:\/\/yahwe.kosherny.site\//;
     
     my $redis = $self->redis;
     my $pubsub = $redis->pubsub;
