@@ -7,29 +7,85 @@
         <b><%= _l('I also have') %> <a href="<%= lurl('/chords') %>"><%= lc _l('Chords') %></a> <%= _l('of songs!') %></b><br/>
     
         <ul class="h5">
-            <li><a href="#yoni_noise_session">2010 - yoni noise session @ 2010​-​03​-​23</a></li>
-            <li><a href="#unagamma_iv">2021 - Unagamma IV</a></li>
-            <li><a href="#unagamma_iii">2021 - Unagamma III</a></li>
-            <li><a href="#unagamma_ii">2021 - Unagamma II</a></li>
-            <li><a href="#unagamma_i">2021 - Unagamma I</a></li>
-            <li><a href="#kupets">2021 - Купец</a></li>
-            <li><a href="#september_2021">2021 - Сентябрь 2021</a></li>
-            <li><a href="#postbard_cover">2021 - Учаcтники паблика пост-бард поют песни Yahwe</a></li>
-            <li><a href="#kvantovaya_bomba">2021 - Квантовая бомба </a></li>
-            <li><a href="#v_nebe">2021 - В небе (EP)</a></li>
-            <li><a href="#favorite_milk">2020 - Favorite Milk</a></li>
-            <li><a href="#siberia">2020 - Siberia</a></li>
-            <li><a href="#uzbekistanskaya_street">2020 - Узбекистанская улица session</a></li>
-            <li><a href="#my_ten_songs">2019 - My ten songs (demo)</a></li>
-            <li><a href="#numbers">2018 - Numbers </a></li>
+			<li><a href="#yahwe_odessa">Yahwe - 2023 - Одесский Шансон</a></li>
+			<li><a href="#Delf_Schneider_mixtape">Дэлф - 2023 - Delf Schneider mixtape 2022</a></li>
+			<li><a href="#plus_2022">Plus - 2023 - Sacred of Plus 2022</a></li>
+			<li><a href="#yahwe_2022">Yahwe - 2023 - Yahwe Unreleased 2022</a></li>
+			<li><a href="#folky_deals">vsepohui - 2023 - Folky deals (EP)</a></li>
+			<li><a href="#John_Lennon_Continuous_1">vsepohui - 2023 - John Lennon Continuous (part 1)</a></li>
+			<li><a href="#John_Lennon_Continuous_2">vsepohui - 2023 - John Lennon Continuous (part 2)</a></li>
+			<li><a href="#Bibingo_2023_Unreleased_2022">Bibingo - 2023 - Unreleased 2022</a></li>
+            <li><a href="#unagamma_iv">Yahwe - 2021 - Unagamma IV</a></li>
+            <li><a href="#unagamma_iii">Yahwe - 2021 - Unagamma III</a></li>
+            <li><a href="#unagamma_ii">Yahwe - 2021 - Unagamma II</a></li>
+            <li><a href="#unagamma_i">Yahwe - 2021 - Unagamma I</a></li>
+            <li><a href="#kupets">Yahwe - 2021 - Купец</a></li>
+            <li><a href="#september_2021">Yahwe - 2021 - Сентябрь 2021</a></li>
+            <li><a href="#postbard_cover">Yahwe - 2021 - Учаcтники паблика пост-бард поют песни Yahwe</a></li>
+            <li><a href="#kvantovaya_bomba">Yahwe - 2021 - Квантовая бомба </a></li>
+            <li><a href="#v_nebe">Yahwe - 2021 - В небе (EP)</a></li>
+            <li><a href="#favorite_milk">Yahwe - 2020 - Favorite Milk</a></li>
+            <li><a href="#siberia">Yahwe - 2020 - Siberia</a></li>
+            <li><a href="#uzbekistanskaya_street">Yahwe - 2020 - Узбекистанская улица session</a></li>
+            <li><a href="#my_ten_songs">Yahwe - 2019 - My ten songs (demo)</a></li>
+            <li><a href="#numbers">Yahwe - 2018 - Numbers </a></li>
+            <li><a href="#yoni_noise_session">Yoni - 2010 - yoni noise session @ 2010​-​03​-​23</a></li>
         </ul>
-        
+
+
+    <br/><br/>
+    <h2 align="center" id="yahwe_odessa">
+        Yahwe - 2023 - Одесский Шансон<br/>
+        <a href="https://kosherny.site/yahwe/">Download</a>
+    </h2>
+
+	
+
+    <br/><br/>
+    <h2 align="center" id="Delf_Schneider_mixtape">
+        Дэлф - 2023 - Delf Schneider mixtape 2022<br/>
+        <a href="https://kosherny.site/yahwe/">Download</a>
+    </h2>
+
+    <br/><br/>
+    <h2 align="center" id="plus_2022">
+        Plus - 2023 - Sacred of Plus 2022<br/>
+        <a href="https://kosherny.site/yahwe/">Download</a>
+    </h2>
+
+
+    <br/><br/>
+    <h2 align="center" id="yahwe_2022">
+        Yahwe - 2023 - Yahwe Unreleased 2022<br/>
+        <a href="https://kosherny.site/yahwe/">Download</a>
+    </h2>
+
+
+    <br/><br/>
+    <h2 align="center" id="folky_deals">
+        vsepohui - 2023 - Folky deals (EP)<br/>
+        <a href="https://kosherny.site/yahwe/">Download</a>
+    </h2>
+
+
+    <br/><br/>
+    <h2 align="center" id="John_Lennon_Continuous_1">
+        John Lennon Continuous (part 1)<br/>
+        <a href="https://kosherny.site/yahwe/">Download</a>
+    </h2>
+
+
+    <br/><br/>
+    <h2 align="center" id="John_Lennon_Continuous_2">
+        John Lennon Continuous (part 2)<br/>
+        <a href="https://kosherny.site/yahwe/">Download</a>
+    </h2>
+  
     
-    <h2 align="center" id="yoni_noise_session">
-        yoni noise session @ 2010​-​03​-​23<br/>
-         <a href="https://kosherny.site/yahwe/">Download</a>
-         <a class="h5" href="https://archive.org/details/YoniNoiseSession2010-03-23" target="_blank">mp3 #2</a>
-         <a class="h5" href="https://drive.google.com/file/d/13Mb36ND4uUq3H84bjlrhLSV_Ny8weQiY/view?usp=sharing" target="_blank">mp3 #3</a>
+    <br/><br/>
+    <h2 align="center" id="Bibingo_2023_Unreleased_2022">
+        Unreleased 2022<br/>
+        <a href="https://kosherny.site/yahwe/">Download</a>
     </h2>
    
     <br/><br/>
@@ -140,6 +196,15 @@
         <a href="https://kosherny.site/yahwe/">Download</a>
         <a class="h5" href="https://archive.org/details/numbers_202110" target="_blank">mp3 #2</a> 
         <a class="h5" href="https://drive.google.com/file/d/1XDgBeW0z7T_GBZuM5HOI4KuRilTpPYzF/view?usp=sharing" taget="_blank">mp3 #3</a>
+    </h2>
+
+	<br/><br/>
+
+    <h2 align="center" id="yoni_noise_session">
+        yoni noise session @ 2010​-​03​-​23<br/>
+         <a href="https://kosherny.site/yahwe/">Download</a>
+         <a class="h5" href="https://archive.org/details/YoniNoiseSession2010-03-23" target="_blank">mp3 #2</a>
+         <a class="h5" href="https://drive.google.com/file/d/13Mb36ND4uUq3H84bjlrhLSV_Ny8weQiY/view?usp=sharing" target="_blank">mp3 #3</a>
     </h2>
     
     </p>
