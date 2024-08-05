@@ -7,6 +7,9 @@
         <b><%= _l('I also have') %> <a href="<%= lurl('/chords') %>"><%= lc _l('Chords') %></a> <%= _l('of songs!') %></b><br/>
     
         <ul class="h5">
+			<li><a href="#yahwe_piano_tracks">Yahwe - 2024 - Piano Tracks</a></li>
+			<li><a href="#akab_siberia">РУКИ АКАБА - 2024 - СИБИРЬ</a></li>
+			<li><a href="#akab_akab">РУКИ АКАБА - 2024 - РУКИ АКАБА</a></li>
 			<li><a href="#yahwe_odessa">Yahwe - 2023 - Одесский Шансон</a></li>
 			<li><a href="#Delf_Schneider_mixtape">Дэлф - 2023 - Delf Schneider mixtape 2022</a></li>
 			<li><a href="#plus_2022">Plus - 2023 - Sacred of Plus 2022</a></li>
@@ -22,7 +25,6 @@
             <li><a href="#kupets">Yahwe - 2021 - Купец</a></li>
             <li><a href="#september_2021">Yahwe - 2021 - Сентябрь 2021</a></li>
             <li><a href="#postbard_cover">Yahwe - 2021 - Учаcтники паблика пост-бард поют песни Yahwe</a></li>
-            <li><a href="#kvantovaya_bomba">Yahwe - 2021 - Квантовая бомба </a></li>
             <li><a href="#v_nebe">Yahwe - 2021 - В небе (EP)</a></li>
             <li><a href="#favorite_milk">Yahwe - 2020 - Favorite Milk</a></li>
             <li><a href="#siberia">Yahwe - 2020 - Siberia</a></li>
@@ -31,6 +33,26 @@
             <li><a href="#numbers">Yahwe - 2018 - Numbers </a></li>
             <li><a href="#yoni_noise_session">Yoni - 2010 - yoni noise session @ 2010​-​03​-​23</a></li>
         </ul>
+
+
+    <br/><br/>
+    <h2 align="center" id="yahwe_piano_tracks">
+        Yahwe - 2024 - Piano Tracks<br/>
+        <a href="https://kosherny.site/yahwe/">Download</a>
+    </h2>
+
+    <br/><br/>
+    <h2 align="center" id="akab_siberia">
+        РУКИ АКАБА - 2024 - СИБИРЬ<br/>
+        <a href="https://kosherny.site/yahwe/">Download</a>
+    </h2>
+
+
+    <br/><br/>
+    <h2 align="center" id="akab_akab">
+        РУКИ АКАБА - 2024 - РУКИ АКАБА<br/>
+        <a href="https://kosherny.site/yahwe/">Download</a>
+    </h2>
 
 
     <br/><br/>
@@ -142,13 +164,6 @@
         <a href="https://kosherny.site/yahwe/">Download</a>
         <a class="h5" href="https://archive.org/details/va_2021_postbard_yahwe_covers" target="_blank">mp3 #2</a> 
         <a class="h5" href="https://drive.google.com/file/d/1VxXAibhOmJI4tjnLbaHAljY0hDC9ROnL/view?usp=sharing" target="_blank">mp3 #3</a>
-    </h2>
-    
-    <br/><br/>
-    <h2 align="center" id="kvantovaya_bomba">
-        Квантовая бомба<br/>
-        <a href="https://kosherny.site/yahwe/">Download</a>
-        <a class="h5" href="https://archive.org/details/yahwe_2021_kvantovya_bomba" target="_blank">mp3 #3</a> <a class="h5" href="https://drive.google.com/file/d/1lmqXNNugl0AbRTJ9BfBGggiQZUlG7Oyz/view?usp=sharing" target="_blank">mp3 #2</a>
     </h2>
     
     <br/><br/>
