@@ -1,6 +1,2 @@
-% layout 'default', description => _l('Home of Yahwe');
-% title _l('Homepage');
 
-<h1 align="center"><%= _l('Homepage') %></h1>
-
-Welcome to Yahwe Homepage!
+%= include 'home/me';

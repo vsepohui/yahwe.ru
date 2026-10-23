@@ -6,9 +6,8 @@
 <h4>
     <%= _l 'Name' %>: <%= _l 'Ivan Trunaev' %><br/>
     <%= _l 'Email' %>: trunaev.ivan@icloud.com (<s>trunaev@gmail.com</s> - losed)<br/>
-    <%= _l 'Phone' %>: +7(922)410-42-23 (old <s>+79263902275</s> - losed)<br/>
+    <%= _l 'Phone' %>: +7 (922) 410-42-23 (old <s>+79263902275</s> - losed)<br/>
     <%= _l 'Skype' %>: No skype (<s>delf_shnaider</s> - losed)<br/>
-    <%= _l 'Telegram' %>: @trunaev<br/>
 </h4>
 <b2/>
 <h5><%= _l 'A mysterious indie-folk performer from somewhere in the snowy Siberia.' %></h5>
