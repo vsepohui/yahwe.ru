@@ -52,8 +52,6 @@
       <div class="collapse navbar-collapse" style="text-align: right;" id="navbarNavDropdown">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 h6">
 
-            <li class="nav-item"><a href="<%= lurl ('/unagamma') %>" class="nav-link<%= $url eq '/'.$lang.'/unagamma' ? ' active' : '' %> h5"><%= _l 'Unagamma' %></a></li>
-            %# <li class="nav-item"><a href="<%= lurl ('/blog') %>" class="nav-link<%= $url =~ /^\/$lang\/blog/ ? ' active' : '' %> h5"><%= _l 'Blog' %></a></li>
             <li class="nav-item"><a href="<%= lurl ('/releases') %>" class="nav-link<%= $url eq '/'.$lang.'/releases' ? ' active' : '' %> h5"><%= _l 'Releases' %></a></li>
             %# <li class="nav-item"><a href="<%= lurl ('/chords') %>" class="nav-link<%= $url =~ /^\/$lang\/chords/ ? ' active' : '' %> h5"><%= _l 'Chords' %></a></li>
             <li class="nav-item"><a href="<%= lurl ('/books') %>" class="nav-link<%= $url eq '/'.$lang.'/books' ? ' active' : '' %> h5"><%= _l 'Books' %></a></li>
@@ -82,8 +80,6 @@
             <ul class="list-unstyled text-small">
               %# <li><a class="text-muted" href="<%= lurl ('/') %>"><%= _l 'Home' %></a></li>
               <li><a class="text-muted" href="<%= lurl ('/me') %>"><%= _l 'About me' %></a></li>
-              <li><a class="text-muted" href="<%= lurl ('/unagamma') %>"><%= _l 'Unagamma' %></a></li>
-              <li><a class="text-muted" href="<%= lurl ('/blog') %>"><%= _l 'Blog' %></a></li>
               <li><a class="text-muted" href="<%= lurl ('/releases') %>"><%= _l 'Releases' %></a></li>
               <li><a class="text-muted" href="<%= lurl ('/chords') %>"><%= _l 'Chords' %></a></li>
               <li><a class="text-muted" href="<%= lurl ('/books') %>"><%= _l 'Books' %></a></li>
