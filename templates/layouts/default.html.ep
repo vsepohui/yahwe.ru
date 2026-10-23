@@ -73,7 +73,7 @@
         <div class="row">
           <div class="col-12 col-md">
             <a href="<%= lurl '/' %>"><img class="mb-2" src="/i/3rd-i-mini.jpg" title="Yahwe"></a>
-            <small class="d-block mb-3 text-muted">Yahwe &copy; 2021-2023</small>
+            <small class="d-block mb-3 text-muted">Yahwe &copy; 2021-2026</small>
           </div>
           <div class="col-6 col-md">
             <h5><%= _l 'More' %></h5>
